@@ -1,0 +1,21 @@
+.contenedor-footer {
+  background-color: #000;
+  height: 200px;
+  user-select: none;
+}
+
+.contenido-footer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contenido-footer p {
+  margin: auto;
+  color: #606060;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: Hind, sans-serif;
+  letter-spacing: 0.2em;
+}

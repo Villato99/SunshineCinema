@@ -1,0 +1,43 @@
+.contenedor-advertisement {
+  background-image: url("/assets/img/paws-background.jpg");
+  background-size: contain;
+  font-family: Hind, sans-serif;
+  user-select: none;
+  height: 200px;
+  margin: auto;
+}
+
+.contenedor-advertisement .container {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+}
+
+.advertisement-tittle {
+  margin-top: auto;
+}
+
+.advertisement-tittle span {
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: #101010;
+  display: block;
+}
+
+.fa-paw {
+  font-size: 18x !important;
+  color: #101010;
+}
+
+.advertisement-subtittle {
+  margin-bottom: auto;
+}
+
+.advertisement-subtittle span {
+  letter-spacing: 0.2em;
+  font-size: 12px;
+}
