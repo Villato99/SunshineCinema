@@ -10,12 +10,17 @@
     <i class="fa fa-bars"></i>
   </a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <a class="navbar-brand">
+    <a class="navbar-brand" routerLink="/home" routerLinkActive="active">
       <img src="/assets/img/White Sunset Logo.png" />
     </a>
     <ul class="navbar-nav w-100 d-flex flex-row justify-content-end">
       <li class="nav-item">
-        <a class="nav-link effect-underline" href="#">INICIO</a>
+        <a
+          class="nav-link effect-underline"
+          routerLink="/home"
+          routerLinkActive="active"
+          >INICIO</a
+        >
       </li>
       <li class="nav-item">
         <a class="nav-link effect-underline" href="#">CARTELERA</a>
@@ -30,7 +35,12 @@
         <a class="nav-link effect-underline" href="#">CONTACTO</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link effect-underline" href="#">ACERCA</a>
+        <a
+          class="nav-link effect-underline"
+          routerLink="/home/acerca"
+          routerLinkActive="active"
+          >ACERCA</a
+        >
       </li>
       <li class="nav-item">
         <a class="nav-link effect-underline" href="#">REGISTRARSE</a>
