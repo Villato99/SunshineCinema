@@ -1,7 +1,7 @@
 .seccion1-inicio {
   background-image: url("/assets/img/Hamburger.jpg");
   background-size: cover;
-  height: 500 px;
+  height: 500px;
   display: table-cell;
   vertical-align: middle;
   position: relative;
@@ -42,9 +42,16 @@
   z-index: 1;
 }
 
-body {
-  background-color: rgb(247, 247, 247);
+.contenedor {
+  background-color: rgb(236, 236, 236);
+  padding: 0;
 }
+
+.row-productos {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .card {
   background-color: white;
 }
@@ -58,7 +65,27 @@ body {
   color: #000;
 }
 
-.card-body span {
+.card-header p {
   font-size: 15px;
+  color: #606060;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+.card-body {
+  font-family: "Century Gothic";
+  max-height: 220px;
+  overflow: hidden;
+}
+
+.card-footer span {
+  font-size: 18 px;
+  font-weight: bold;
+  color: #606060;
+}
+
+.card-footer p {
+  font-size: 15 px;
+  font-weight: normal;
   color: #606060;
 }
