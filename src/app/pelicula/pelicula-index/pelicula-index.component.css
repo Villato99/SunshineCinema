@@ -1,7 +1,7 @@
 .seccion1-inicio {
-  background-image: url("/assets/img/autocine1.jpg");
-  background-size: cover;
-  height: 500 px;
+  background-image: url("/assets/img/autocine2.jpg");
+  background-size: contain;
+  height: 595px;
   display: table-cell;
   vertical-align: middle;
   position: relative;
@@ -60,5 +60,10 @@ body {
 
 .card-body span {
   font-size: 15px;
+  color: #606060;
+}
+
+.card-body p {
+  font-size: 13px;
   color: #606060;
 }
