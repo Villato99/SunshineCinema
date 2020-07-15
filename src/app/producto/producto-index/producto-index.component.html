@@ -1,36 +1,49 @@
-<div class="contenedor-inicio container-fluid p-0">
-  <div class="p-0 seccion1-inicio">
-    <div class="overlay"></div>
-    <div class="d-flex flex-column text-center">
-      <h5 class="s1-subtitle">
-        DISFRUTE DEL CINE DESDE LA COMODIDAD DE SU VEHICULO
-      </h5>
-      <span class="s1-title mt-3 mb-5">SUNSET CINEMA FOOD</span>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid mt-5 mb-5 contenido-productos">
-  <div class="row my-2 row-productos">
-    <div class="col-12 col-lg-3" *ngFor="let producto of datos">
-      <!-- Información de productos -->
-      <div class="card border-1 d-flex rounded shadow-sm h-100 p-0">
-        <div class="card-header border-0 bg-white">
-          <span class="card-title text-center">{{ producto.name }}</span>
-        </div>
-        <div class="card-body d-flex flex-column">
-          <span class="card-text">Descripcion: {{ producto.descripcion }}</span>
-          <span>Precio: ₡{{ producto.precio }}</span>
-        </div>
-        <div class="card-footer border-0">
-          <a
-            class="btn btn-warning"
-            [routerLink]="['/producto/', producto.id]"
-            routerLinkActive="active"
-            >Ver <i class="fa fa-eye"></i
-          ></a>
-        </div>
+<div class="contenedor">
+  <div class="contenedor-inicio container-fluid p-0">
+    <div class="p-0 seccion1-inicio">
+      <div class="overlay"></div>
+      <div class="d-flex flex-column text-center">
+        <h5 class="s1-subtitle">
+          DISFRUTE DEL CINE DESDE LA COMODIDAD DE SU VEHICULO
+        </h5>
+        <span class="s1-title mt-3 mb-5">SUNSET CINEMA FOOD</span>
       </div>
     </div>
   </div>
-</div>
+
+
+
+  <div class="container-fluid mt-5 mb-0 contenido-productos">
+    <div class="row my-2 row-productos">
+      <div
+        class="col-12 col-md-6 col-lg-3 mt-3 mb-3"
+        *ngFor="let producto of datos"
+      >
+        <!-- Información de productos -->
+        <div class="card border-1 d-flex rounded shadow-sm h-100 p-0">
+          <div
+            class="card-header border-0 bg-white d-flex flex-column text-center pb-0"
+          >
+            <span class="card-title text-center mb-0 pb-0">{{
+              producto.name
+            }}</span>
+            <p class="card-title text-center">
+              {{ producto.tipoproducto.name }}
+            </p>
+          </div>
+          <div class="card-body p-0 d-flex flex-column">
+            <img class="img-fluid p-0" src="{{ producto['imagen'] }}" />
+          </div>
+          <div class="card-footer border-0 d-flex flex-column">
+            <p>Precio: ₡ {{ producto["precio"] }}</p>
+            <div>
+              <a
+                class="btn btn-warning mt-1 mb-2"
+                [routerLink]="['/prducto/', producto.id]"
+                routerLinkActive="active"
+                >Ver <i class="fa fa-eye"></i
+              ></a>
+            </div>
+          </div>
+
+
