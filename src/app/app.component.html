@@ -1,12 +1,17 @@
 <!-- Selector del encabezado definido en el módulo Core -->
-<app-header></app-header>
+<app-header
+  *ngIf="router.url != '/user/sign-in' && router.url != '/user/login'"
+></app-header>
 <!-- routeroutlet: marcador de posición que Angular se llena dinámicamente según el estado actual del enrutador -->
 <app-inicio *ngIf="router.url == '/'"></app-inicio>
 <!--<app-inicio *ngIf="router.url == '/'"></app-inicio>-->
 <router-outlet></router-outlet>
 <!-- Selector del pie de página definido en el módulo Core -->
-<app-footer></app-footer>
+<app-footer
+  *ngIf="router.url != '/user/sign-in' && router.url != '/user/login'"
+></app-footer>
 <app-petfriendly1
   *ngIf="router.url == '/'"
   class="advertisement-pet"
+  ng
 ></app-petfriendly1>
