@@ -1,6 +1,6 @@
 <!-- Selector del encabezado definido en el módulo Core -->
 <app-header
-  *ngIf="router.url != '/user/sign-in' && router.url != '/user/login'"
+  *ngIf="router.url != '/user/create' && router.url != '/user/login'"
 ></app-header>
 <!-- routeroutlet: marcador de posición que Angular se llena dinámicamente según el estado actual del enrutador -->
 <app-inicio *ngIf="router.url == '/'"></app-inicio>
@@ -8,7 +8,7 @@
 <router-outlet></router-outlet>
 <!-- Selector del pie de página definido en el módulo Core -->
 <app-footer
-  *ngIf="router.url != '/user/sign-in' && router.url != '/user/login'"
+  *ngIf="router.url != '/user/create' && router.url != '/user/login'"
 ></app-footer>
 <app-petfriendly1
   *ngIf="router.url == '/'"

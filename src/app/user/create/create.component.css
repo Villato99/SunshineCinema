@@ -129,6 +129,10 @@ a {
   z-index: 1;
 }
 
+.text-danger {
+  font-family: "century gothic";
+}
+
 small {
   font-family: "Century Gothic";
 }

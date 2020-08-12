@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ShareModule } from './share/share.module';
@@ -12,21 +11,25 @@ import { AdvertisementModule } from './advertisement/advertisement.module';
 import { PeliculaModule } from './pelicula/pelicula.module';
 import { ProductoModule } from './producto/producto.module';
 import { CarteleraModule } from './cartelera/cartelera.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+
     CoreModule,
     ShareModule,
+
     HomeModule,
     UserModule,
     AdvertisementModule,
-    AppRoutingModule,
     PeliculaModule,
     ProductoModule,
     CarteleraModule,
+    
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
