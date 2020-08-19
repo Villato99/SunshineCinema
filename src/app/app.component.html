@@ -8,7 +8,11 @@
 <router-outlet></router-outlet>
 <!-- Selector del pie de página definido en el módulo Core -->
 <app-footer
-  *ngIf="router.url != '/user/create' && router.url != '/user/login'"
+  *ngIf="
+    router.url != '/user/create' &&
+    router.url != '/user/login' &&
+    router.url != '/cartelera/cartelera-index'
+  "
 ></app-footer>
 <app-petfriendly1
   *ngIf="router.url == '/'"

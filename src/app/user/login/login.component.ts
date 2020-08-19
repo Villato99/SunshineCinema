@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     //console.log(this.formulario.value);
     this.authService.loginUser(this.formulario.value).subscribe(
       (respuesta: any) => {
-        (this.infoUsuario = respuesta), this.router.navigate(['videojuego/']);
+        (this.infoUsuario = respuesta), this.router.navigate(['cartelera/']);
       },
       (error: any) => {
         this.error = error;
