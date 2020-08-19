@@ -2,10 +2,12 @@
 <app-header
   *ngIf="router.url != '/user/create' && router.url != '/user/login'"
 ></app-header>
+
 <!-- routeroutlet: marcador de posición que Angular se llena dinámicamente según el estado actual del enrutador -->
 <app-inicio *ngIf="router.url == '/'"></app-inicio>
 <!--<app-inicio *ngIf="router.url == '/'"></app-inicio>-->
-<router-outlet></router-outlet>
+<router-outlet> </router-outlet>
+
 <!-- Selector del pie de página definido en el módulo Core -->
 <app-footer
   *ngIf="
@@ -14,6 +16,7 @@
     router.url != '/cartelera/cartelera-index'
   "
 ></app-footer>
+
 <app-petfriendly1
   *ngIf="router.url == '/'"
   class="advertisement-pet"

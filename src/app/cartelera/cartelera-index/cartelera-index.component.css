@@ -22,6 +22,10 @@ html {
   color: #000;
 }
 
+.btn-sede:hover a {
+  color: #000;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -46,6 +50,10 @@ html {
     font-weight: bold;
     transition: ease-in-out 0.2s;
   }
+
+  .btn-sede a {
+    color: #fff;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -61,6 +69,9 @@ html {
     text-transform: uppercase;
     font-weight: bold;
     transition: ease-in-out 0.2s;
+  }
+  .btn-sede a {
+    color: #fff;
   }
 }
 
@@ -78,6 +89,9 @@ html {
     font-weight: bold;
     transition: ease-in-out 0.2s;
   }
+  .btn-sede a {
+    color: #fff;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -94,6 +108,9 @@ html {
     font-weight: bold;
     transition: ease-in-out 0.2s;
   }
+  .btn-sede a {
+    color: #fff;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -109,5 +126,8 @@ html {
     text-transform: uppercase;
     font-weight: bold;
     transition: ease-in-out 0.2s;
+  }
+  .btn-sede a {
+    color: #fff;
   }
 }

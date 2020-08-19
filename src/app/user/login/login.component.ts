@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.mensajes();
   }
+
   submitForm() {
     //Reglas de validación de Angular inválidas
     if (this.formulario.invalid) {
@@ -62,7 +63,10 @@ export class LoginComponent implements OnInit {
     //console.log(this.formulario.value);
     this.authService.loginUser(this.formulario.value).subscribe(
       (respuesta: any) => {
-        (this.infoUsuario = respuesta), this.router.navigate(['cartelera/']);
+        (this.infoUsuario = respuesta),
+          this.router.navigate([
+            this.infoUsuario.rol_id == 2 ? '/' : '/user/admin-index',
+          ]);
       },
       (error: any) => {
         this.error = error;

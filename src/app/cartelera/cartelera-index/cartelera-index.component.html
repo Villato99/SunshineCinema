@@ -1,10 +1,11 @@
 <div class="main-container container-fluid d-flex flex-column">
   <div class="main-content container">
-    <div class="mt-auto mb-auto d-flex flex-column">
-      <a class="btn-sede">Jacó</a>
-      <a class="btn-sede">Bahía Ballena</a>
-      <a class="btn-sede">Puerto Viejo</a>
-      <a class="btn-sede">Montezuma</a>
+    <div class="d-flex flex-column mt-auto mb-auto">
+      <div class="btn-sede" *ngFor="let ubicacion of datos">
+        <a class="nav-link" routerLink="carteleras/{{ ubicacion.id }}">{{
+          ubicacion.name
+        }}</a>
+      </div>
     </div>
   </div>
 </div>

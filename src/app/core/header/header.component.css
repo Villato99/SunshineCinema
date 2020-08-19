@@ -73,3 +73,11 @@ body {
   text-decoration: none;
   transition-duration: 0.8s;
 }
+
+.menu {
+  z-index: 15;
+}
+
+.dropdown-menu {
+  z-index: 1900;
+}
