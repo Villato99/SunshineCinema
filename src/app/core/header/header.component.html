@@ -73,6 +73,17 @@
           >INICIAR SESION</a
         >
       </li>
+      <li
+        class="nav-item"
+        *ngIf="currentUser?.user && currentUser.user.rol_id == 1"
+      >
+        <a
+          class="nav-link effect-underline text-uppercase"
+          routerLink="/user/admin-index"
+          routerLinkActive="active"
+          ><i class="fa fa-user-circle"></i>{{ currentUser.user.name }}</a
+        >
+      </li>
       <li class="nav-item" *ngIf="currentUser?.user">
         <a class="nav-link effect-underline" (click)="logOut()"
           ><i class="fas fa-sign-out-alt"></i>CERRAR SESION</a

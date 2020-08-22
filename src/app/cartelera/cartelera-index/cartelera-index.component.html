@@ -2,7 +2,7 @@
   <div class="main-content container">
     <div class="d-flex flex-column mt-auto mb-auto">
       <div class="btn-sede" *ngFor="let ubicacion of datos">
-        <a class="nav-link" routerLink="carteleras/{{ ubicacion.id }}">{{
+        <a class="nav-link" [routerLink]="['/cartelera/', ubicacion.id]">{{
           ubicacion.name
         }}</a>
       </div>

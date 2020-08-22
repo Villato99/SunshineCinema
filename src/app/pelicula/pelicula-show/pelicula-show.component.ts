@@ -31,7 +31,18 @@ export class PeliculaShowComponent implements OnInit {
     this.destroy$.unsubscribe();
   }
 
-  obtenerPelicula(id:any){
-    this.gService.get('peliculasfiltro', id).pipe(takeUntil(this.destroy$)).subscribe((data: any) => { console.log(data); this.datos = data; }, (error: any) => { this.notificacion.mensaje(error.message, error.name, 'error'); });
+  obtenerPelicula(id: any) {
+    this.gService
+      .get('peliculas', id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.datos = data;
+        },
+        (error: any) => {
+          this.notificacion.mensaje(error.message, error.name, 'error');
+        }
+      );
   }
 }

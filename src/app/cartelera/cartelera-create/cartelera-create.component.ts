@@ -3,11 +3,11 @@ import { AuthenticationService } from 'src/app/share/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-index',
-  templateUrl: './admin-index.component.html',
-  styleUrls: ['./admin-index.component.css'],
+  selector: 'app-cartelera-create',
+  templateUrl: './cartelera-create.component.html',
+  styleUrls: ['./cartelera-create.component.css'],
 })
-export class AdminIndexComponent implements OnInit {
+export class CarteleraCreateComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private router: Router

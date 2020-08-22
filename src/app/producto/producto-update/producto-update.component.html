@@ -1,0 +1,113 @@
+<div class="contenedor-inicio container-fluid p-0">
+  <div class="p-0 seccion1-inicio">
+    <div class="overlay"></div>
+    <div class="d-flex flex-column text-center">
+      <h5 class="s1-subtitle">
+        Mantenimiento de Productos
+      </h5>
+      <span class="s1-title mt-3 mb-5">ADMINISTRADOR SUNSET CINEMA</span>
+    </div>
+  </div>
+</div>
+
+<div class="contenedor-inicio container-fluid m-auto text-center pt-5 pb-5">
+  <div class="seccion2-inicio container">
+    <form [formGroup]="formUpdate" (ngSubmit)="submitForm()" novalidate="true">
+      <div class="container form-row">
+        <div class="col-12 mb-4">
+          <span class="title col-12">Actualizar Producto</span>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Nombre del Producto</span>
+          <input
+            type="text"
+            class="form-control mb-1 nombre"
+            placeholder="Escriba el nombre del producto aquí"
+            formControlName="name"
+          />
+          <small *ngIf="errorHandling('name', 'required')" class="text-danger">
+            El nombre del producto es requerido
+          </small>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Descripcion del Producto</span>
+          <textarea
+            rows="3"
+            class="form-control mb-1"
+            placeholder="Escriba la descripcion aquí"
+            formControlName="descripcion"
+          ></textarea>
+          <small
+            *ngIf="errorHandling('descripcion', 'required')"
+            class="text-danger"
+          >
+            La descripcion del producto es requerida
+          </small>
+        </div>
+        <div
+          class="form-group group-gen rounded p-1 col-12 text-left d-flex flex-column"
+        >
+          <span class="subtitle">Clasificaciones del Producto</span>
+          <div
+            class="d-flex flex-row mt-3 mb-2"
+            formArrayName="clasificaciones"
+          >
+            <div
+              class="form-check ml-2 mr-2"
+              *ngFor="let p of clasificaciones.controls; index as i"
+            >
+              <input
+                type="checkbox"
+                class="form-check-input"
+                [formControlName]="i"
+                [value]="clasificacionesList[i]?.id"
+                (change)="onCheckChange(clasificacionesList[i]?.id, $event)"
+              />
+              <label class="form-check-label">{{
+                clasificacionesList[i]?.name
+              }}</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Tipo de Producto</span>
+          <select
+            class="form-control select-clasif"
+            formControlName="tipoproducto_id"
+          >
+            <option *ngFor="let tipo of tiposProductoList" [value]="tipo.id">
+              {{ tipo.name }}
+            </option>
+          </select>
+
+          <small
+            *ngIf="errorHandling('tipoproducto_id', 'required')"
+            class="text-danger"
+          >
+            El tipo de producto es requerido
+          </small>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Precio del Producto</span>
+          <input
+            type="text"
+            class="form-control mb-1 precio"
+            placeholder="Detalle el precio aquí"
+            formControlName="precio"
+          />
+          <small
+            *ngIf="errorHandling('precio', 'required')"
+            class="text-danger"
+          >
+            El precio del producto es requerido
+          </small>
+        </div>
+        <div class="form-group col-12 mt-3 text-left">
+          <button type="submit" class="btn-crear btn">
+            Actualizar Prducto
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

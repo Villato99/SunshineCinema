@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]],
     });
   }
+
   mensajes() {
     let register = false;
     // Mensajes
@@ -65,7 +66,7 @@ export class LoginComponent implements OnInit {
       (respuesta: any) => {
         (this.infoUsuario = respuesta),
           this.router.navigate([
-            this.infoUsuario.rol_id == 2 ? '/' : '/user/admin-index',
+            this.infoUsuario.rol_id == 2 ? '/' : 'user/admin-index',
           ]);
       },
       (error: any) => {

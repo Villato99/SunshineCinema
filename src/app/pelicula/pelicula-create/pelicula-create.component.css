@@ -4,9 +4,9 @@
 }
 
 .seccion1-inicio {
-  background-image: url("/assets/img/DriveInTheater.jpg");
+  background: url("/assets/img/Cinema.jpg") no-repeat;
   background-size: cover;
-  height: 500px;
+  height: 450px;
   display: table-cell;
   vertical-align: middle;
   position: relative;
@@ -79,27 +79,52 @@
   z-index: 1;
 }
 
-.card {
-  height: 200px;
-}
-
-.card a {
-  display: flex;
-  flex-direction: column;
-  vertical-align: middle;
-  text-align: center;
-}
-
-.card i {
-  font-size: 80px;
-  color: #000;
-}
-
-.card span {
-  font-size: 20px;
-  font-weight: bold;
+.title {
+  background-color: #000;
+  color: #ffffff;
   font-family: "century gothic";
-  letter-spacing: 1px;
-  color: #101010;
-  margin: 10px auto;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #202020;
+  width: 100%;
+  font-family: "century gothic";
+  margin-bottom: 5px;
+}
+
+.btn-crear {
+  background-color: #ffb400;
+  color: #000;
+  font-weight: bold;
+  font-family: "Century Gothic";
+  transition: ease-in-out 0.2s;
+  border-radius: 0;
+  padding: 15px 10px;
+}
+
+.btn-crear:hover {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+}
+
+.select-clasif {
+  width: 300px;
+}
+
+.group-gen {
+  border: 1px solid rgb(216, 216, 216);
+}
+
+.form-group {
+  margin: 15px auto;
+}
+
+.nombre {
+  width: 220px;
 }
