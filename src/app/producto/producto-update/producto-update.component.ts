@@ -34,14 +34,8 @@ export class ProductoUpdateComponent implements OnInit {
     private gService: GenericService,
     private notificacion: NotificacionService
   ) {
-    if (authService.currentUserValue == null) {
-      this.router.navigate(['/']);
-    } else if (authService.currentUserValue.user.rol_id == 2) {
-      this.router.navigate(['/']);
-    } else {
-      const idPelicula = +this.route.snapshot.paramMap.get('id');
-      this.getPelicula(idPelicula);
-    }
+    const idPelicula = +this.route.snapshot.paramMap.get('id');
+    this.getPelicula(idPelicula);
   }
 
   getPelicula(id: number) {
@@ -70,7 +64,7 @@ export class ProductoUpdateComponent implements OnInit {
         id: [this.Producto.id, [Validators.required]],
         name: [this.Producto.name, [Validators.required]],
         descripcion: [this.Producto.descripcion, [Validators.required]],
-        tipoproducto_id: [this.Producto.tipoproducto, [Validators.required]],
+        tipoproducto_id: [this.Producto.tipoproducto_id, [Validators.required]],
         imagen: ['./assets/img_productos/momia.jpg', [Validators.required]],
         clasificaciones: this.formBuilder.array([]),
         clasifproducto_id: this.formBuilder.array([]),
@@ -107,9 +101,20 @@ export class ProductoUpdateComponent implements OnInit {
   }
 
   private cheboxesClasificaciones() {
-    this.clasificacionesList.forEach(() => {
-      const control = new FormControl(); // primer parámetro valor a asignar
+    //Recorrer la lista de plataformas y especificar si esta seleccionado
+    this.clasificacionesList.forEach((o) => {
+      let selected = false;
+      if (this.Producto.clasifproductos.find((x) => x.id == o.id)) {
+        selected = true;
+      }
+      const control = new FormControl(selected);
       (this.formUpdate.controls.clasificaciones as FormArray).push(control);
+      if (selected) {
+        //Agregar al array de id seleccionados
+        (this.formUpdate.controls.clasifproducto_id as FormArray).push(
+          new FormControl(o.id)
+        );
+      }
     });
   }
 

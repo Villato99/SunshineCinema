@@ -13,15 +13,12 @@
 <div class="contenedor-inicio container-fluid m-auto text-center pt-5 pb-5">
   <div class="seccion2-inicio container d-flex flex-column">
     <div class="crear-container text-left">
-      <button type="button" class="btn btn-crear" (click)="CrearCartelera()">
-        <span>Añadir Nueva Cartelera</span>
-      </button>
-      <button type="button" class="btn btn-crear" (click)="VerInactivas()">
-        <span>Carteleras Inactivas</span>
+      <button type="button" class="btn btn-crear" (click)="VerActivas()">
+        <span>Carteleras Activas</span>
       </button>
     </div>
     <h2 class="text-center pt-5 pb-5 mt-5 mb-5" *ngIf="datos.length == 0">
-      No hay carteleras activas
+      No hay carteleras inactivas
     </h2>
     <div class="listado-container mt-5">
       <div class="row my-2 row-productos">
@@ -54,15 +51,7 @@
             </div>
             <div
               class="card-footer mt-3 border-0 d-flex flex-row justify-content-center"
-            >
-              <button
-                type="button"
-                class="btn bg-transparent"
-                (click)="ActualizarCartelera(cartelera.id)"
-              >
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-            </div>
+            ></div>
           </div>
         </div>
       </div>

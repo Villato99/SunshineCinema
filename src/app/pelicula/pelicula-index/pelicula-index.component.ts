@@ -4,6 +4,7 @@ import { NotificacionService } from 'src/app/share/notificacion.service';
 import { Subject } from 'rxjs';
 import { summaryForJitName } from '@angular/compiler/src/aot/util';
 import { takeUntil } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 //import { AuthenticationService } from 'src/app/share/authentication.service'
 @Component({
   selector: 'app-pelicula-index',
@@ -17,11 +18,13 @@ export class PeliculaIndexComponent implements OnInit {
 
   constructor(
     private gService: GenericService,
-    private notificacion: NotificacionService
+    private notificacion: NotificacionService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.listaPeliculas();
+    this.mensajes();
   }
   gnOnDestroy() {
     this.destroy$.next(true);
@@ -41,5 +44,19 @@ export class PeliculaIndexComponent implements OnInit {
           this.notificacion.mensaje(error.message, error.name, 'error');
         }
       );
+  }
+
+  mensajes() {
+    let auth = false;
+    this.route.queryParams.subscribe((params) => {
+      auth = params.auth || false;
+    });
+    if (auth) {
+      this.notificacion.mensaje(
+        'Usuario',
+        'Su usuario no posee permisos para ingresar a este recurso!',
+        'warning'
+      );
+    }
   }
 }

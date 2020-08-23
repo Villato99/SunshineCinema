@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { AuthenticationService } from 'src/app/share/authentication.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { GenericService } from 'src/app/share/generic.service';
 import { NotificacionService } from 'src/app/share/notificacion.service';
+import { GenericService } from 'src/app/share/generic.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/share/authentication.service';
+import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-cartelera-all',
-  templateUrl: './cartelera-all.component.html',
-  styleUrls: ['./cartelera-all.component.css'],
+  selector: 'app-pelicula-inactivas',
+  templateUrl: './pelicula-inactivas.component.html',
+  styleUrls: ['./pelicula-inactivas.component.css'],
 })
-export class CarteleraAllComponent implements OnInit {
+export class PeliculaInactivasComponent implements OnInit {
   datos: any;
   error: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
@@ -25,7 +25,7 @@ export class CarteleraAllComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.ListarCarteleras();
+    this.ListaPeliculas();
   }
 
   ngOnDestroy() {
@@ -34,9 +34,9 @@ export class CarteleraAllComponent implements OnInit {
     this.destroy$.unsubscribe();
   }
 
-  ListarCarteleras() {
+  ListaPeliculas() {
     this.gService
-      .list('carteleras/')
+      .list('peliculas/peliculaDeshabilitada')
       .pipe(takeUntil(this.destroy$))
       .subscribe(
         (data: any) => {
@@ -49,20 +49,14 @@ export class CarteleraAllComponent implements OnInit {
       );
   }
 
-  ActualizarCartelera(id: number) {
-    this.router.navigate(['/cartelera/update', id], {
+  ActualizarPelicula(id: number) {
+    this.router.navigate(['/pelicula/update', id], {
       relativeTo: this.route,
     });
   }
 
-  CrearCartelera() {
-    this.router.navigate(['/cartelera/create'], {
-      relativeTo: this.route,
-    });
-  }
-
-  VerInactivas() {
-    this.router.navigate(['/cartelera/inactivas'], {
+  VerActivas() {
+    this.router.navigate(['/pelicula/all'], {
       relativeTo: this.route,
     });
   }

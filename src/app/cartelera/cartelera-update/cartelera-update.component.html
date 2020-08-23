@@ -1,1 +1,114 @@
-<p>cartelera-update works!</p>
+<div class="contenedor-inicio container-fluid p-0">
+  <div class="p-0 seccion1-inicio">
+    <div class="overlay"></div>
+    <div class="d-flex flex-column text-center">
+      <h5 class="s1-subtitle">
+        Mantenimiento de Carteleras
+      </h5>
+      <span class="s1-title mt-3 mb-5">ADMINISTRADOR SUNSET CINEMA</span>
+    </div>
+  </div>
+</div>
+
+<div class="contenedor-inicio container-fluid m-auto text-center pt-5 pb-5">
+  <div class="seccion2-inicio container">
+    <form [formGroup]="formUpdate" (ngSubmit)="submitForm()" novalidate="true">
+      <div class="container form-row">
+        <div class="col-12 mb-4">
+          <span class="title col-12">Actualizar Cartelera</span>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Pelicula</span>
+          <select
+            class="form-control select-clasif"
+            formControlName="pelicula_id"
+          >
+            <option *ngFor="let peli of peliculasList" [value]="peli.id">
+              {{ peli.name }}
+            </option>
+          </select>
+
+          <small
+            *ngIf="errorHandling('pelicula_id', 'required')"
+            class="text-danger"
+          >
+            La pelicula es requerida
+          </small>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Ubicacion de la Funcion</span>
+          <select
+            class="form-control select-clasif"
+            formControlName="ubicacion_id"
+          >
+            <option *ngFor="let ubi of ubicacionesList" [value]="ubi.id">
+              {{ ubi.name }}
+            </option>
+          </select>
+
+          <small
+            *ngIf="errorHandling('ubicacion_id', 'required')"
+            class="text-danger"
+          >
+            La ubicacion de la funcion es requerida
+          </small>
+        </div>
+        <div
+          class="form-group group-gen rounded p-1 col-12 text-left d-flex flex-column"
+        >
+          <span class="subtitle">Tiquetes aplicables</span>
+          <div class="d-flex flex-row mt-3 mb-2" formArrayName="tiquetes">
+            <div
+              class="form-check ml-2 mr-2"
+              *ngFor="let p of tiquetes.controls; index as i"
+            >
+              <input
+                type="checkbox"
+                class="form-check-input"
+                [formControlName]="i"
+                [value]="tiquetesList[i]?.id"
+                (change)="onCheckChange(tiquetesList[i]?.id, $event)"
+              />
+              <label class="form-check-label">{{
+                tiquetesList[i]?.name
+              }}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Fecha de la Funcion</span>
+          <input
+            type="date"
+            class="form-control"
+            value="2018-07-22"
+            formControlName="fechaHora"
+          />
+          <small
+            *ngIf="errorHandling('fechaHora', 'required')"
+            class="text-danger"
+          >
+            La fecha de la funcion es requerida
+          </small>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Hora de la Funcion</span>
+          <input
+            type="time"
+            class="form-control"
+            value="2018-07-22"
+            formControlName="hora"
+          />
+          <small *ngIf="errorHandling('hora', 'required')" class="text-danger">
+            La hora de la funcion es requerida
+          </small>
+        </div>
+        <div class="form-group col-12 mt-3 text-left">
+          <button type="submit" class="btn-crear btn">
+            Actualizar Cartelera
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

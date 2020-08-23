@@ -4,6 +4,7 @@ import { NotificacionService } from 'src/app/share/notificacion.service';
 import { Subject } from 'rxjs';
 import { summaryForJitName } from '@angular/compiler/src/aot/util';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto-index',
@@ -17,7 +18,8 @@ export class ProductoIndexComponent implements OnInit {
 
   constructor(
     private gService: GenericService,
-    private notificacion: NotificacionService
+    private notificacion: NotificacionService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +44,41 @@ export class ProductoIndexComponent implements OnInit {
           this.notificacion.mensaje(error.message, error.name, 'error');
         }
       );
+  }
+
+  VotoLike(id: number) {
+    this.gService.create('productos', id).subscribe(
+      (respuesta: any) => {
+        this.router.navigate(['producto/'], {
+          queryParams: { register: 'true' },
+        });
+      },
+      (error) => {
+        this.error = error;
+        this.notificacion.msjValidacion(this.error);
+      }
+    );
+  }
+
+  VotoDislike(id: number) {
+    this.gService.create('productos/dis', id).subscribe(
+      (respuesta: any) => {
+        this.router.navigate(['producto/'], {
+          queryParams: { register: 'true' },
+        });
+      },
+      (error) => {
+        this.error = error;
+        this.notificacion.msjValidacion(this.error);
+      }
+    );
+  }
+
+  parseValueFloat(value: any) {
+    return parseFloat(value);
+  }
+
+  parseValueInt(value: any) {
+    return parseInt(value);
   }
 }

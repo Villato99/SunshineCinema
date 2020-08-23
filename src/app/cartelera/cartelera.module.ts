@@ -9,6 +9,7 @@ import { CarteleraUpdateComponent } from './cartelera-update/cartelera-update.co
 import { CarteleraAllComponent } from './cartelera-all/cartelera-all.component';
 //Agregar la referencia en el modulo donde se utilizaran uno o mas formularios reactive
 import { ReactiveFormsModule } from '@angular/forms';
+import { CarteleraInactivasComponent } from './cartelera-inactivas/cartelera-inactivas.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CarteleraCreateComponent,
     CarteleraUpdateComponent,
     CarteleraAllComponent,
+    CarteleraInactivasComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, CarteleraRoutingModule],
 })

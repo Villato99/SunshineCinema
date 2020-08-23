@@ -22,13 +22,7 @@ export class ProductoAllComponent implements OnInit {
     private route: ActivatedRoute,
     private gService: GenericService,
     private notificacion: NotificacionService
-  ) {
-    if (authService.currentUserValue == null) {
-      this.router.navigate(['/']);
-    } else if (authService.currentUserValue.user.rol_id == 2) {
-      this.router.navigate(['/']);
-    }
-  }
+  ) {}
 
   ngOnInit(): void {
     this.ListaProductos();
@@ -62,6 +56,12 @@ export class ProductoAllComponent implements OnInit {
 
   CrearProducto() {
     this.router.navigate(['/producto/create'], {
+      relativeTo: this.route,
+    });
+  }
+
+  VerInactivos() {
+    this.router.navigate(['/producto/inactivos'], {
       relativeTo: this.route,
     });
   }

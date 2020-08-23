@@ -22,13 +22,7 @@ export class PeliculaAllComponent implements OnInit {
     private route: ActivatedRoute,
     private gService: GenericService,
     private notificacion: NotificacionService
-  ) {
-    if (authService.currentUserValue == null) {
-      this.router.navigate(['/']);
-    } else if (authService.currentUserValue.user.rol_id == 2) {
-      this.router.navigate(['/']);
-    }
-  }
+  ) {}
 
   ngOnInit(): void {
     this.ListaPeliculas();
@@ -63,6 +57,12 @@ export class PeliculaAllComponent implements OnInit {
 
   CrearPelicula() {
     this.router.navigate(['/pelicula/create'], {
+      relativeTo: this.route,
+    });
+  }
+
+  VerInactivas() {
+    this.router.navigate(['/pelicula/inactivas'], {
       relativeTo: this.route,
     });
   }

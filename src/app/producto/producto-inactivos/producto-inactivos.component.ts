@@ -7,11 +7,11 @@ import { GenericService } from 'src/app/share/generic.service';
 import { NotificacionService } from 'src/app/share/notificacion.service';
 
 @Component({
-  selector: 'app-cartelera-all',
-  templateUrl: './cartelera-all.component.html',
-  styleUrls: ['./cartelera-all.component.css'],
+  selector: 'app-producto-inactivos',
+  templateUrl: './producto-inactivos.component.html',
+  styleUrls: ['./producto-inactivos.component.css'],
 })
-export class CarteleraAllComponent implements OnInit {
+export class ProductoInactivosComponent implements OnInit {
   datos: any;
   error: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
@@ -25,18 +25,17 @@ export class CarteleraAllComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.ListarCarteleras();
+    this.ListaProductos();
   }
 
   ngOnDestroy() {
     this.destroy$.next(true);
-    // Desinscribirse
     this.destroy$.unsubscribe();
   }
 
-  ListarCarteleras() {
+  ListaProductos() {
     this.gService
-      .list('carteleras/')
+      .list('productos/productoDeshabilitado')
       .pipe(takeUntil(this.destroy$))
       .subscribe(
         (data: any) => {
@@ -49,20 +48,14 @@ export class CarteleraAllComponent implements OnInit {
       );
   }
 
-  ActualizarCartelera(id: number) {
-    this.router.navigate(['/cartelera/update', id], {
+  ActualizarProducto(id: number) {
+    this.router.navigate(['/producto/update', id], {
       relativeTo: this.route,
     });
   }
 
-  CrearCartelera() {
-    this.router.navigate(['/cartelera/create'], {
-      relativeTo: this.route,
-    });
-  }
-
-  VerInactivas() {
-    this.router.navigate(['/cartelera/inactivas'], {
+  VerActivos() {
+    this.router.navigate(['/producto/all'], {
       relativeTo: this.route,
     });
   }

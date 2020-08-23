@@ -12,11 +12,6 @@
 
 <div class="contenedor-inicio container-fluid m-auto text-center pt-5 pb-5">
   <div class="seccion2-inicio container d-flex flex-column">
-    <div class="crear-container text-left">
-      <button type="button" class="btn btn-crear" (click)="CrearProducto()">
-        <span>Añadir Nuevo Producto</span>
-      </button>
-    </div>
     <div class="listado-container mt-5">
       <table class="table table-striped">
         <thead class="thead-style">
@@ -58,9 +53,9 @@
       <button
         type="button"
         class="btn btn-deshabilitadas"
-        (click)="VerInactivos()"
+        (click)="VerActivos()"
       >
-        <span>Productos Inactivos</span>
+        <span>Productos Activos</span>
       </button>
     </div>
   </div>

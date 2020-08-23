@@ -9,6 +9,7 @@ import { PeliculaUpdateComponent } from './pelicula-update/pelicula-update.compo
 import { PeliculaAllComponent } from './pelicula-all/pelicula-all.component';
 //Agregar la referencia en el modulo donde se utilizaran uno o mas formularios reactive
 import { ReactiveFormsModule } from '@angular/forms';
+import { PeliculaInactivasComponent } from './pelicula-inactivas/pelicula-inactivas.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PeliculaCreateComponent,
     PeliculaUpdateComponent,
     PeliculaAllComponent,
+    PeliculaInactivasComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, PeliculaRoutingModule],
 })

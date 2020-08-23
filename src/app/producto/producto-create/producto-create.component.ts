@@ -33,13 +33,7 @@ export class ProductoCreateComponent implements OnInit {
     private gService: GenericService,
     private notificacion: NotificacionService
   ) {
-    if (authService.currentUserValue == null) {
-      this.router.navigate(['/']);
-    } else if (authService.currentUserValue.user.rol_id == 2) {
-      this.router.navigate(['/']);
-    } else {
-      this.reactiveForm();
-    }
+    this.reactiveForm();
   }
 
   reactiveForm() {

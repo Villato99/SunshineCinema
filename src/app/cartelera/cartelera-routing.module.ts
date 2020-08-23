@@ -5,13 +5,37 @@ import { CarteleraShowComponent } from './cartelera-show/cartelera-show.componen
 import { CarteleraCreateComponent } from './cartelera-create/cartelera-create.component';
 import { CarteleraUpdateComponent } from './cartelera-update/cartelera-update.component';
 import { CarteleraAllComponent } from './cartelera-all/cartelera-all.component';
+import { AuthGuardService } from '../share/auth-guard.service';
+import { RolGuardService } from '../share/rol-guard.service';
+import { CarteleraInactivasComponent } from './cartelera-inactivas/cartelera-inactivas.component';
 
 const routes: Routes = [
   { path: 'cartelera/cartelera-index', component: CarteleraIndexComponent },
-  { path: 'cartelera/all', component: CarteleraAllComponent },
+  {
+    path: 'cartelera/all',
+    component: CarteleraAllComponent,
+    canActivate: [AuthGuardService, RolGuardService],
+    data: { expectedRole: 1 },
+  },
+  {
+    path: 'cartelera/inactivas',
+    component: CarteleraInactivasComponent,
+    canActivate: [AuthGuardService, RolGuardService],
+    data: { expectedRole: 1 },
+  },
+  {
+    path: 'cartelera/create',
+    component: CarteleraCreateComponent,
+    canActivate: [AuthGuardService, RolGuardService],
+    data: { expectedRole: 1 },
+  },
+  {
+    path: 'cartelera/update/:id',
+    component: CarteleraUpdateComponent,
+    canActivate: [AuthGuardService, RolGuardService],
+    data: { expectedRole: 1 },
+  },
   { path: 'cartelera/:id', component: CarteleraShowComponent },
-  { path: 'cartelera/create', component: CarteleraCreateComponent },
-  { path: 'cartelera/update/:id', component: CarteleraUpdateComponent },
 ];
 
 @NgModule({

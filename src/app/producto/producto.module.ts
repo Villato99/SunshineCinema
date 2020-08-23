@@ -9,6 +9,7 @@ import { ProductoUpdateComponent } from './producto-update/producto-update.compo
 import { ProductoAllComponent } from './producto-all/producto-all.component';
 //Agregar la referencia en el modulo donde se utilizaran uno o mas formularios reactive
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductoInactivosComponent } from './producto-inactivos/producto-inactivos.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductoCreateComponent,
     ProductoUpdateComponent,
     ProductoAllComponent,
+    ProductoInactivosComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, ProductoRoutingModule],
 })

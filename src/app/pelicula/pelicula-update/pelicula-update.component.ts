@@ -34,14 +34,8 @@ export class PeliculaUpdateComponent implements OnInit {
     private gService: GenericService,
     private notificacion: NotificacionService
   ) {
-    if (authService.currentUserValue == null) {
-      this.router.navigate(['/']);
-    } else if (authService.currentUserValue.user.rol_id == 2) {
-      this.router.navigate(['/']);
-    } else {
-      const idPelicula = +this.route.snapshot.paramMap.get('id');
-      this.getPelicula(idPelicula);
-    }
+    const idPelicula = +this.route.snapshot.paramMap.get('id');
+    this.getPelicula(idPelicula); 
   }
 
   getPelicula(id: number) {

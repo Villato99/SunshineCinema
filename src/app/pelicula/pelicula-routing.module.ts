@@ -5,12 +5,36 @@ import { PeliculaShowComponent } from './pelicula-show/pelicula-show.component';
 import { PeliculaCreateComponent } from './pelicula-create/pelicula-create.component';
 import { PeliculaUpdateComponent } from './pelicula-update/pelicula-update.component';
 import { PeliculaAllComponent } from './pelicula-all/pelicula-all.component';
+import { AuthGuardService } from '../share/auth-guard.service';
+import { RolGuardService } from '../share/rol-guard.service';
+import { PeliculaInactivasComponent } from './pelicula-inactivas/pelicula-inactivas.component';
 
 const routes: Routes = [
   { path: 'pelicula', component: PeliculaIndexComponent },
-  { path: 'pelicula/all', component: PeliculaAllComponent },
-  { path: 'pelicula/create', component: PeliculaCreateComponent },
-  { path: 'pelicula/update/:id', component: PeliculaUpdateComponent },
+  {
+    path: 'pelicula/all',
+    component: PeliculaAllComponent,
+    canActivate: [AuthGuardService, RolGuardService],
+    data: { expectedRole: 1 },
+  },
+  {
+    path: 'pelicula/inactivas',
+    component: PeliculaInactivasComponent,
+    canActivate: [AuthGuardService, RolGuardService],
+    data: { expectedRole: 1 },
+  },
+  {
+    path: 'pelicula/create',
+    component: PeliculaCreateComponent,
+    canActivate: [AuthGuardService, RolGuardService],
+    data: { expectedRole: 1 },
+  },
+  {
+    path: 'pelicula/update/:id',
+    component: PeliculaUpdateComponent,
+    canActivate: [AuthGuardService, RolGuardService],
+    data: { expectedRole: 1 },
+  },
   { path: 'pelicula/:id', component: PeliculaShowComponent },
 ];
 
