@@ -1,0 +1,93 @@
+<div class="contenedor-inicio container-fluid p-0">
+  <div class="p-0 seccion1-inicio">
+    <div class="overlay"></div>
+    <div class="d-flex flex-column text-center">
+      <h5 class="s1-subtitle">
+        Mantenimiento de Peliculas
+      </h5>
+      <span class="s1-title mt-3 mb-5">ADMINISTRADOR SUNSET CINEMA</span>
+    </div>
+  </div>
+</div>
+
+<div class="contenedor-inicio container-fluid m-auto text-center pt-5 pb-5">
+  <div class="seccion2-inicio container">
+    <form [formGroup]="formUpdate" (ngSubmit)="submitForm()" novalidate>
+      <div class="container form-row">
+        <div class="col-12 mb-4">
+          <span class="title col-12">Actualizar Pelicula</span>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Nombre de la Pelicula</span>
+          <input
+            type="text"
+            class="form-control mb-1"
+            placeholder="Escriba el nombre de la película aquí"
+            formControlName="name"
+          />
+          <small *ngIf="errorHandling('name', 'required')" class="text-danger">
+            El nombre de la pelicula es requerido
+          </small>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Sipnosis de la Pelicula</span>
+          <textarea
+            rows="3"
+            class="form-control mb-1"
+            placeholder="Escriba la sipnosis aquí"
+            formControlName="sinopsis"
+          ></textarea>
+          <small
+            *ngIf="errorHandling('sinopsis', 'required')"
+            class="text-danger"
+          >
+            La sipnosis de la pelicula es requerida
+          </small>
+        </div>
+        <div
+          class="form-group group-gen rounded p-1 col-12 text-left d-flex flex-column"
+        >
+          <span class="subtitle">Generos de la Película</span>
+          <div class="d-flex flex-row mt-3 mb-2" formArrayName="generos">
+            <div
+              class="form-check ml-2 mr-2"
+              *ngFor="let p of generos.controls; index as i"
+            >
+              <input
+                type="checkbox"
+                class="form-check-input"
+                [formControlName]="i"
+                [value]="generosList[i]?.id"
+                (change)="onCheckChange(generosList[i]?.id, $event)"
+              />
+              <label class="form-check-label">{{ generosList[i]?.name }}</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-12 text-left d-flex flex-column">
+          <span class="subtitle">Clasificacion de la Pelicula</span>
+          <select
+            class="form-control select-clasif"
+            formControlName="clasificacion_id"
+          >
+            <option *ngFor="let clasif of clasificaciones" [value]="clasif.id">
+              {{ clasif.descripcion }}
+            </option>
+          </select>
+
+          <small
+            *ngIf="errorHandling('clasificacion_id', 'required')"
+            class="text-danger"
+          >
+            Las clasificacion de la pelicula es requerida
+          </small>
+        </div>
+        <div class="form-group col-12 mt-3 text-left">
+          <button type="submit" class="btn-crear btn">
+            Actualizar Pelicula
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

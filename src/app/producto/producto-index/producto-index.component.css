@@ -54,6 +54,7 @@
 
 .card {
   background-color: white;
+  user-select: none;
 }
 
 .card-header span {
@@ -63,29 +64,62 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #000;
+  user-select: none;
 }
 
-.card-header p {
-  font-size: 15px;
-  color: #606060;
-  font-weight: lighter;
-  text-transform: uppercase;
-}
-
-.card-body {
-  font-family: "Century Gothic";
+.card-header {
   max-height: 220px;
   overflow: hidden;
 }
 
-.card-footer span {
-  font-size: 18 px;
+.card-body {
+  font-family: "Century Gothic";
+}
+
+.card-body {
+  font-family: "Century Gothic";
+}
+
+.card-body h5 {
   font-weight: bold;
+  letter-spacing: 2px;
+  color: #101010;
+  text-transform: uppercase;
+}
+
+.card-body span {
+  font-size: 15px;
   color: #606060;
 }
 
-.card-footer p {
-  font-size: 15 px;
-  font-weight: normal;
+.card-body p {
+  font-size: 13px;
+  padding: 1px 0;
+  margin: 0 auto;
   color: #606060;
+}
+
+.fa-thumbs-up,
+.fa-thumbs-down {
+  color: #000;
+}
+
+.fa-thumbs-up:hover,
+.fa-thumbs-down:hover {
+  color: #606060;
+}
+
+.fa-trophy {
+  color: #f4a261;
+}
+
+.votos {
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.voto-count {
+  color: #606060;
+  font-family: "century gothic";
+  user-select: none;
 }

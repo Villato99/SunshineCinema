@@ -1,0 +1,133 @@
+html {
+  user-select: none;
+}
+.main-container {
+  min-height: 100vh;
+  background: url("/assets/img/autocine2.jpg") no-repeat;
+  background-size: cover;
+}
+
+.main-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  text-align: center;
+  z-index: 10;
+}
+
+.btn-sede:hover {
+  border: 2px solid #efa261;
+  background-color: #efa261;
+  color: #000;
+}
+
+.btn-sede:hover a {
+  color: #000;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .btn-sede {
+    padding: 10px 0;
+    width: 200px;
+    color: #fff;
+    font-size: 20px;
+    border: 2px solid #fff;
+    margin: 15px auto;
+    font-family: "Century Gothic";
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: ease-in-out 0.2s;
+  }
+
+  .btn-sede a {
+    color: #fff;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .btn-sede {
+    padding: 10px 0;
+    width: 200px;
+    color: #fff;
+    font-size: 20px;
+    border: 2px solid #fff;
+    margin: 15px auto;
+    font-family: "Century Gothic";
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: ease-in-out 0.2s;
+  }
+  .btn-sede a {
+    color: #fff;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .btn-sede {
+    padding: 15px 0;
+    width: 200px;
+    color: #fff;
+    font-size: 25px;
+    border: 2px solid #fff;
+    margin: 15px auto;
+    font-family: "Century Gothic";
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: ease-in-out 0.2s;
+  }
+  .btn-sede a {
+    color: #fff;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .btn-sede {
+    padding: 15px 0;
+    width: 230px;
+    color: #fff;
+    font-size: 25px;
+    border: 2px solid #fff;
+    margin: 20px auto;
+    font-family: "Century Gothic";
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: ease-in-out 0.2s;
+  }
+  .btn-sede a {
+    color: #fff;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .btn-sede {
+    padding: 15px 0;
+    width: 230px;
+    color: #fff;
+    font-size: 25px;
+    border: 2px solid #fff;
+    margin: 20px auto;
+    font-family: "Century Gothic";
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: ease-in-out 0.2s;
+  }
+  .btn-sede a {
+    color: #fff;
+  }
+}

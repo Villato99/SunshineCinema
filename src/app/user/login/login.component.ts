@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
     private notificacion: NotificacionService
   ) {
     //Si esta logueado que lo redireccione
-    if (authService.currentUserValue) {
+    /*  if (authService.currentUserValue) {
       this.router.navigate(['/']);
-    }
+    } */
     this.reactiveForm();
   }
   /* Definir formulario y la validación */
@@ -37,11 +37,14 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]],
     });
   }
+
   mensajes() {
     let register = false;
+    let auth: false;
     // Mensajes
     this.route.queryParams.subscribe((params) => {
       register = params.register || false;
+      auth = params.auth || false;
     });
     if (register) {
       this.notificacion.mensaje(
@@ -50,10 +53,18 @@ export class LoginComponent implements OnInit {
         'success'
       );
     }
+    if (auth) {
+      this.notificacion.mensaje(
+        'Usuario',
+        'Su usuario no posee permisos para ingresar a este recurso!',
+        'warning'
+      );
+    }
   }
   ngOnInit(): void {
     this.mensajes();
   }
+
   submitForm() {
     //Reglas de validación de Angular inválidas
     if (this.formulario.invalid) {
@@ -62,7 +73,10 @@ export class LoginComponent implements OnInit {
     //console.log(this.formulario.value);
     this.authService.loginUser(this.formulario.value).subscribe(
       (respuesta: any) => {
-        (this.infoUsuario = respuesta), this.router.navigate(['videojuego/']);
+        (this.infoUsuario = respuesta),
+          this.router.navigate([
+            this.infoUsuario.rol_id == 2 ? '/' : 'user/admin-index',
+          ]);
       },
       (error: any) => {
         this.error = error;

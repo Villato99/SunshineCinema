@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg pt-3 pb-3">
+<nav class="navbar navbar-expand-lg pt-3 pb-3 menu">
   <a
     class="navbar-toggler"
     type="button"
@@ -23,7 +23,12 @@
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link effect-underline" href="#">CARTELERA</a>
+        <a
+          class="nav-link effect-underline"
+          routerLink="/cartelera/cartelera-index"
+          routerLinkActive="active"
+          >CARTELERA</a
+        >
       </li>
       <li class="nav-item">
         <a
@@ -52,7 +57,7 @@
           >ACERCA</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="currentUser == null">
         <a
           class="nav-link effect-underline"
           routerLink="/user/create"
@@ -60,12 +65,28 @@
           >REGISTRARSE</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="currentUser == null">
         <a
           class="s1-button m-auto d-inline-block"
           routerLink="/user/login"
           routerLinkActive="active"
           >INICIAR SESION</a
+        >
+      </li>
+      <li
+        class="nav-item"
+        *ngIf="currentUser?.user && currentUser.user.rol_id == 1"
+      >
+        <a
+          class="nav-link effect-underline text-uppercase"
+          routerLink="/user/admin-index"
+          routerLinkActive="active"
+          ><i class="fa fa-user-circle"></i>{{ currentUser.user.name }}</a
+        >
+      </li>
+      <li class="nav-item" *ngIf="currentUser?.user">
+        <a class="nav-link effect-underline" (click)="logOut()"
+          ><i class="fas fa-sign-out-alt"></i>CERRAR SESION</a
         >
       </li>
     </ul>

@@ -1,0 +1,56 @@
+<div class="contenedor-inicio container-fluid p-0">
+  <div class="p-0 seccion1-inicio">
+    <div class="overlay"></div>
+    <div class="d-flex flex-column text-center">
+      <h5 class="s1-subtitle">
+        ADMISTRE PRODUCTOS, CARTELERA, PELICULAS Y USUARIOS
+      </h5>
+      <span class="s1-title mt-3 mb-5">ADMINISTRADOR SUNSET CINEMA</span>
+    </div>
+  </div>
+</div>
+
+<div
+  class="contenedor-inicio container-fluid m-auto text-center pt-5 pb-5 mt-5 mb-5"
+>
+  <div class="seccion2-inicio">
+    <div class="row mt-3 mb-3 ml-auto mr-auto">
+      <div class="col-12 col-md-4">
+        <div class="card rounded border-1 shadow-sm">
+          <a
+            [routerLink]="['/producto/all']"
+            routerLinkActive="active"
+            class="nav-link text-center m-auto"
+          >
+            <i class="fa fa-pizza-slice"></i>
+            <span>Mantenimiento de Productos</span>
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card rounded border-1 shadow-sm">
+          <a
+            [routerLink]="['/pelicula/all']"
+            routerLinkActive="active"
+            class="nav-link text-center m-auto"
+          >
+            <i class="fa fa-film"></i>
+            <span>Mantenimiento de Peliculas</span>
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card rounded border-1 shadow-sm">
+          <a
+            [routerLink]="['/cartelera/all']"
+            routerLinkActive="active"
+            class="nav-link text-center m-auto"
+          >
+            <i class="fa fa-ticket-alt"></i>
+            <span>Mantenimiento de Cartelera</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

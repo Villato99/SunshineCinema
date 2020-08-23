@@ -1,0 +1,65 @@
+<div class="contenedor-inicio container-fluid p-0">
+  <div class="p-0 seccion1-inicio">
+    <div class="overlay"></div>
+    <div class="d-flex flex-column text-center">
+      <h5 class="s1-subtitle">
+        Mantenimiento de Peliculas
+      </h5>
+      <span class="s1-title mt-3 mb-5">ADMINISTRADOR SUNSET CINEMA</span>
+    </div>
+  </div>
+</div>
+
+<div class="contenedor-inicio container-fluid m-auto text-center pt-5 pb-5">
+  <div class="seccion2-inicio container d-flex flex-column">
+    <div class="crear-container text-left">
+      <button type="button" class="btn btn-crear" (click)="CrearPelicula()">
+        <span>Añadir Nueva Pelicula</span>
+      </button>
+    </div>
+    <div class="listado-container mt-5">
+      <table class="table table-striped">
+        <thead class="thead-style">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Sipnosis</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Clasificacion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let peli of datos" class="trow-style">
+            <td class="td-name">{{ peli.name }}</td>
+            <td>{{ peli.sinopsis }}</td>
+            <td
+              class="d-flex flex-column td-genero"
+              *ngFor="let genero of peli.generos"
+            >
+              <span>{{ genero.name }}</span>
+            </td>
+            <td>{{ peli.clasificacion.descripcion }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn bg-transparent"
+                (click)="ActualizarPelicula(peli.id)"
+              >
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="text-right">
+      <button
+        type="button"
+        class="btn btn-deshabilitadas"
+        (click)="VerInactivas()"
+      >
+        <span>Peliculas Inactivas</span>
+      </button>
+    </div>
+  </div>
+</div>

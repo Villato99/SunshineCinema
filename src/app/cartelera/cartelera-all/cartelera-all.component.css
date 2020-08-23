@@ -1,0 +1,161 @@
+.seccion1-inicio {
+  background-image: url("/assets/img/autocine2.jpg");
+  background-size: contain;
+  height: 595px;
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
+
+.contenedor-inicio {
+  user-select: none;
+  display: table;
+}
+
+.s1-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.7em;
+  font-size: 36px;
+  color: #fff;
+  z-index: 10;
+}
+
+.s1-subtitle {
+  font-family: Muli, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 10px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+body {
+  background-color: rgb(247, 247, 247);
+}
+.card {
+  background-color: white;
+  user-select: none;
+  width: 100%;
+}
+
+.card-header h5 {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #101010;
+  text-transform: uppercase;
+  font-family: "century gothic";
+}
+
+.card-header .fa {
+  color: red;
+  font-size: 25px;
+}
+
+.card-body .fa-film {
+  font-size: 25px;
+}
+
+.card-body .pelicula {
+  background-color: #000;
+  color: #fff;
+}
+
+.card-body {
+  font-family: "Century Gothic";
+}
+
+.card-body h5 {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.card-body span {
+  font-size: 15px;
+  color: #606060;
+}
+
+.card-body p {
+  font-size: 13px;
+  padding: 1px 0;
+  margin: 0 auto;
+  color: #606060;
+}
+
+.fa-thumbs-up,
+.fa-thumbs-down {
+  color: #000;
+}
+
+.fa-thumbs-up:hover,
+.fa-thumbs-down:hover {
+  color: #606060;
+}
+
+.fa-trophy {
+  color: #f4a261;
+}
+
+.votos {
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.voto-count {
+  color: #606060;
+  font-family: "century gothic";
+  user-select: none;
+}
+
+.select-ubicacion {
+  width: 220px;
+}
+
+.formulario {
+  font-family: "century gothic";
+  border-bottom: 1px solid #c5c5c5;
+  padding-bottom: 30px;
+}
+
+.formulario span {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 0 10px 0;
+}
+
+.formulario select {
+  font-size: 14px;
+}
+
+.btn-crear {
+  background-color: #ffb400;
+  color: #000;
+  font-weight: bold;
+  font-family: "Century Gothic";
+  transition: ease-in-out 0.2s;
+  border-radius: 0;
+  padding: 10px 15px;
+  margin: auto 10px;
+}
+
+.btn-crear:hover {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+}

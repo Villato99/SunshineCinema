@@ -24,11 +24,11 @@ import { AppRoutingModule } from './app-routing.module';
 
     HomeModule,
     UserModule,
+    CarteleraModule,
     AdvertisementModule,
     PeliculaModule,
     ProductoModule,
-    CarteleraModule,
-    
+
     AppRoutingModule,
   ],
   providers: [],
