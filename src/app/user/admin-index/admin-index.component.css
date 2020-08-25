@@ -1,0 +1,105 @@
+.contenedor-inicio {
+  user-select: none;
+  display: table;
+}
+
+.seccion1-inicio {
+  background-image: url("/assets/img/DriveInTheater.jpg");
+  background-size: cover;
+  height: 500px;
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
+
+.s1-button {
+  font-family: Hind, sans-serif;
+  font-weight: 600;
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+  font-size: 14px;
+  border: 2px solid;
+  letter-spacing: 0.3em;
+  padding: 15px 40px;
+  width: 200px;
+}
+
+.s1-button:focus,
+.s1-button:hover {
+  color: #fff;
+  background-color: #101010;
+  border-color: #101010;
+  text-decoration: none;
+  transition-duration: 0.8s;
+}
+
+.s1-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.7em;
+  font-size: 36px;
+  color: #fff;
+  z-index: 10;
+}
+
+.s1-subtitle {
+  font-family: Muli, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 10px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.s1-button {
+  text-align: center;
+  font-family: Hind, sans-serif;
+  font-weight: 600;
+  color: #000;
+  background-color: #f4a261;
+  border-color: #f4a261;
+  font-size: 14px;
+  border: 2px solid;
+  letter-spacing: 0.3em;
+  padding: 10px;
+  margin-right: 20px;
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.card {
+  height: 200px;
+}
+
+.card a {
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.card i {
+  font-size: 80px;
+  color: #000;
+}
+
+.card span {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "century gothic";
+  letter-spacing: 1px;
+  color: #101010;
+  margin: 10px auto;
+}

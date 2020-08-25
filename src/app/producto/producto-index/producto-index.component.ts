@@ -4,6 +4,7 @@ import { NotificacionService } from 'src/app/share/notificacion.service';
 import { Subject } from 'rxjs';
 import { summaryForJitName } from '@angular/compiler/src/aot/util';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto-index',
@@ -17,7 +18,8 @@ export class ProductoIndexComponent implements OnInit {
 
   constructor(
     private gService: GenericService,
-    private notificacion: NotificacionService
+    private notificacion: NotificacionService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +44,51 @@ export class ProductoIndexComponent implements OnInit {
           this.notificacion.mensaje(error.message, error.name, 'error');
         }
       );
+  }
+
+  sendLike(id: number) {
+    console.log(id);
+    this.gService.get('productos/like', id).subscribe(
+      (respuesta: any) => {
+        console.log(respuesta);
+        this.router
+          .navigateByUrl('/producto/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/producto/']);
+          });
+      },
+      (error) => {
+        this.error = error;
+        this.notificacion.msjValidacion(this.error);
+        console.log(error);
+      }
+    );
+  }
+
+  sendDislike(id: number) {
+    console.log(id);
+    this.gService.get('productos/dislike', id).subscribe(
+      (respuesta: any) => {
+        console.log(respuesta);
+        this.router
+          .navigateByUrl('/producto/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/producto/']);
+          });
+      },
+      (error) => {
+        this.error = error;
+        this.notificacion.msjValidacion(this.error);
+        console.log(error);
+      }
+    );
+  }
+
+  parseValueFloat(value: any) {
+    return parseFloat(value);
+  }
+
+  parseValueInt(value: any) {
+    return parseInt(value);
   }
 }

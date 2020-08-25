@@ -14,33 +14,63 @@
   <div class="container-fluid mt-5 mb-0 contenido-productos">
     <div class="row my-2 row-productos">
       <div
-        class="col-12 col-md-6 col-lg-3 mt-3 mb-3"
+        class="col-12 col-md-6 col-lg-3 mt-3 mb-3 d-flex align-items-stretch"
         *ngFor="let producto of datos"
       >
         <!-- Información de productos -->
-        <div class="card border-1 d-flex rounded shadow-sm h-100 p-0">
-          <div
-            class="card-header border-0 bg-white d-flex flex-column text-center pb-0"
-          >
-            <span class="card-title text-center mb-0 pb-0">{{
-              producto.name
-            }}</span>
-            <p class="card-title text-center">
-              {{ producto.tipoproducto.name }}
-            </p>
-          </div>
-          <div class="card-body p-0 d-flex flex-column">
+        <div class="card border-1 rounded shadow-sm bg-white">
+          <div class="card-header border-0 bg-white p-0">
             <img class="img-fluid p-0" src="{{ producto['imagen'] }}" />
           </div>
-          <div class="card-footer border-0 d-flex flex-column">
-            <p>Precio: ₡ {{ producto["precio"] }}</p>
-            <div>
+          <div class="card-body p-3 mt-3 d-flex flex-column text-center">
+            <h5>{{ producto.name }}</h5>
+            <span>{{ producto.descripcion }}</span>
+            <span class="mt-3 font-weight-bold"> Clasificaciones</span>
+            <div
+              class="d-flex flex-column"
+              *ngFor="let clasif of producto.clasifproductos"
+            >
+              <p>
+                {{ clasif.name }} - ₡
+                {{
+                  parseValueFloat(producto.precio) +
+                    parseValueFloat(producto.precio) *
+                      parseValueFloat(clasif.valor)
+                }}
+              </p>
+            </div>
+          </div>
+          <div
+            class="card-footer border-0 d-flex flex-row justify-content-center"
+          >
+            <div class="votos d-flex flex-column ml-auto mr-2">
+              <small class="voto-count">{{
+                producto.votoproductos_count
+              }}</small>
               <a
-                class="btn btn-warning mt-1 mb-2"
-                [routerLink]="['/producto/', producto.id]"
-                routerLinkActive="active"
-                >Ver <i class="fa fa-eye"></i
+                (click)="sendLike(producto.id)"
+                class="nav-link fa fa-thumbs-up"
               ></a>
+            </div>
+            <div class="votos d-flex flex-column mr-auto ml-2">
+              <small class="voto-count">{{
+                producto.dislikeproductos_count
+              }}</small>
+              <a
+                (click)="sendDislike(producto.id)"
+                class="nav-link fa fa-thumbs-down"
+              ></a>
+            </div>
+            <div class="votos d-flex flex-column mr-auto ml-2">
+              <small class="voto-count"
+                >{{
+                  (parseValueInt(producto.votoproductos_count) /
+                    (parseValueInt(producto.votoproductos_count) +
+                      parseValueInt(producto.dislikeproductos_count))) *
+                    100 | number: "1.0-0"
+                }}%</small
+              >
+              <a class="nav-link fa fa-trophy"></a>
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ export class CreateComponent implements OnInit {
   error: any;
   formCreate: FormGroup;
   destroy$: Subject<boolean> = new Subject<boolean>();
+
   constructor(
     public fb: FormBuilder,
     private router: Router,
@@ -31,13 +32,13 @@ export class CreateComponent implements OnInit {
   reactiveForm() {
     this.formCreate = this.fb.group({
       name: ['', [Validators.required]],
-      lastname: ['', [Validators.required]],
+      apellido1: ['', [Validators.required]],
+      apellido2: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      //quiza asignar un rol general -ver requerimientos
-      //rol_id: ['', [Validators.required]],
+      rol_id: 2,
+      estado: true,
     });
-    //this.getRoles();
   }
 
   ngOnInit(): void {}
@@ -46,7 +47,7 @@ export class CreateComponent implements OnInit {
     this.authService.createUser(this.formCreate.value).subscribe(
       (respuesta: any) => {
         this.usuario = respuesta;
-        this.router.navigate(['/usuario/login'], {
+        this.router.navigate(['/user/login'], {
           queryParams: { register: 'true' },
         });
       },
@@ -58,20 +59,6 @@ export class CreateComponent implements OnInit {
   }
   onReset() {
     this.formCreate.reset();
-  }
-
-  getRoles() {
-    this.gService
-      .list('videojuegos/roles')
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(
-        (data: any) => {
-          this.roles = data;
-        },
-        (error: any) => {
-          this.notificacion.mensaje(error.message, error.name, 'error');
-        }
-      );
   }
 
   public errorHandling = (control: string, error: string) => {

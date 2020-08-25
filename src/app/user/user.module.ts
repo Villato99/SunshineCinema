@@ -6,9 +6,10 @@ import { LoginComponent } from './login/login.component';
 //Agregar la referencia en el modulo donde se utilizaran uno o mas formularios reactive
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
+import { AdminIndexComponent } from './admin-index/admin-index.component';
 
 @NgModule({
-  declarations: [LoginComponent, CreateComponent],
+  declarations: [LoginComponent, CreateComponent, AdminIndexComponent],
   imports: [CommonModule, ReactiveFormsModule, UserRoutingModule],
 })
 export class UserModule {}

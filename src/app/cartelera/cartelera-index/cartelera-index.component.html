@@ -1,0 +1,12 @@
+<div class="main-container container-fluid d-flex flex-column">
+  <div class="main-content container">
+    <div class="d-flex flex-column mt-auto mb-auto">
+      <div class="btn-sede" *ngFor="let ubicacion of datos">
+        <a class="nav-link" [routerLink]="['/cartelera/', ubicacion.id]">{{
+          ubicacion.name
+        }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="overlay"></div>

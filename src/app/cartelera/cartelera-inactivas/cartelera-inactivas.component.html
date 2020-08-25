@@ -1,0 +1,60 @@
+<div class="contenedor-inicio container-fluid p-0">
+  <div class="p-0 seccion1-inicio">
+    <div class="overlay"></div>
+    <div class="d-flex flex-column text-center">
+      <h5 class="s1-subtitle">
+        Mantenimiento de Carteleras
+      </h5>
+      <span class="s1-title mt-3 mb-5">ADMINISTRADOR SUNSET CINEMA</span>
+    </div>
+  </div>
+</div>
+
+<div class="contenedor-inicio container-fluid m-auto text-center pt-5 pb-5">
+  <div class="seccion2-inicio container d-flex flex-column">
+    <div class="crear-container text-left">
+      <button type="button" class="btn btn-crear" (click)="VerActivas()">
+        <span>Carteleras Activas</span>
+      </button>
+    </div>
+    <h2
+      class="text-center pt-5 pb-5 mt-5 mb-5"
+      *ngIf="datos != null && datos.length == 0"
+    >
+      No hay carteleras inactivas
+    </h2>
+    <div class="listado-container mt-5">
+      <div class="row my-2 row-productos">
+        <div
+          class="col-12 col-md-6 col-lg-3 mt-3 mb-3 d-flex align-items-stretch"
+          *ngFor="let cartelera of datos"
+        >
+          <div class="card border-1 rounded shadow-sm bg-white">
+            <div class="card-header border-0 p-3 d-flex flex-column">
+              <i class="fa fa-map-marker-alt"></i>
+              <h5>
+                {{ cartelera.ubicacion.name }}
+              </h5>
+            </div>
+            <div class="card-body p-0 pb-3 d-flex flex-column text-center">
+              <div class="pelicula d-flex flex-column pt-3 pb-3">
+                <i class="fa fa-film"></i>
+                <h5>{{ cartelera.pelicula.name }}</h5>
+              </div>
+              <span class="mt-2 font-weight-bold">Tiquetes</span>
+              <div
+                class="d-flex flex-column"
+                *ngFor="let tiquete of cartelera.tiquetes"
+              >
+                <p>{{ tiquete.name }}: ₡{{ tiquete.precio }}</p>
+              </div>
+              <span class="mt-2 font-weight-bold">Detalles</span>
+              <p>Fecha: {{ cartelera.fechaHora }}</p>
+              <p>Hora: {{ cartelera.hora }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
