@@ -20,7 +20,10 @@
         <span>Carteleras Inactivas</span>
       </button>
     </div>
-    <h2 class="text-center pt-5 pb-5 mt-5 mb-5" *ngIf="datos.length == 0">
+    <h2
+      class="text-center pt-5 pb-5 mt-5 mb-5"
+      *ngIf="datos != null && datos.length == 0"
+    >
       No hay carteleras activas
     </h2>
     <div class="listado-container mt-5">
@@ -46,7 +49,9 @@
                 class="d-flex flex-column"
                 *ngFor="let tiquete of cartelera.tiquetes"
               >
-                <p>{{ tiquete.name }}: ₡{{ tiquete.precio }}</p>
+                <p>
+                  {{ tiquete.name }}: ₡{{ tiquete.precio | number: "1.0-0" }}
+                </p>
               </div>
               <span class="mt-2 font-weight-bold">Detalles</span>
               <p>Fecha: {{ cartelera.fechaHora }}</p>

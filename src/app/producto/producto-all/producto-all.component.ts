@@ -65,4 +65,8 @@ export class ProductoAllComponent implements OnInit {
       relativeTo: this.route,
     });
   }
+
+  parseValueFloat(number: any) {
+    return parseFloat(number);
+  }
 }

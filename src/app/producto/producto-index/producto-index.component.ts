@@ -46,30 +46,40 @@ export class ProductoIndexComponent implements OnInit {
       );
   }
 
-  VotoLike(id: number) {
-    this.gService.create('productos', id).subscribe(
+  sendLike(id: number) {
+    console.log(id);
+    this.gService.get('productos/like', id).subscribe(
       (respuesta: any) => {
-        this.router.navigate(['producto/'], {
-          queryParams: { register: 'true' },
-        });
+        console.log(respuesta);
+        this.router
+          .navigateByUrl('/producto/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/producto/']);
+          });
       },
       (error) => {
         this.error = error;
         this.notificacion.msjValidacion(this.error);
+        console.log(error);
       }
     );
   }
 
-  VotoDislike(id: number) {
-    this.gService.create('productos/dis', id).subscribe(
+  sendDislike(id: number) {
+    console.log(id);
+    this.gService.get('productos/dislike', id).subscribe(
       (respuesta: any) => {
-        this.router.navigate(['producto/'], {
-          queryParams: { register: 'true' },
-        });
+        console.log(respuesta);
+        this.router
+          .navigateByUrl('/producto/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/producto/']);
+          });
       },
       (error) => {
         this.error = error;
         this.notificacion.msjValidacion(this.error);
+        console.log(error);
       }
     );
   }

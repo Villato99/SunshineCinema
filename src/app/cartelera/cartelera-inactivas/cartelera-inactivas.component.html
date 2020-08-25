@@ -17,7 +17,10 @@
         <span>Carteleras Activas</span>
       </button>
     </div>
-    <h2 class="text-center pt-5 pb-5 mt-5 mb-5" *ngIf="datos.length == 0">
+    <h2
+      class="text-center pt-5 pb-5 mt-5 mb-5"
+      *ngIf="datos != null && datos.length == 0"
+    >
       No hay carteleras inactivas
     </h2>
     <div class="listado-container mt-5">
@@ -33,7 +36,7 @@
                 {{ cartelera.ubicacion.name }}
               </h5>
             </div>
-            <div class="card-body p-0 d-flex flex-column text-center">
+            <div class="card-body p-0 pb-3 d-flex flex-column text-center">
               <div class="pelicula d-flex flex-column pt-3 pb-3">
                 <i class="fa fa-film"></i>
                 <h5>{{ cartelera.pelicula.name }}</h5>
@@ -49,9 +52,6 @@
               <p>Fecha: {{ cartelera.fechaHora }}</p>
               <p>Hora: {{ cartelera.hora }}</p>
             </div>
-            <div
-              class="card-footer mt-3 border-0 d-flex flex-row justify-content-center"
-            ></div>
           </div>
         </div>
       </div>

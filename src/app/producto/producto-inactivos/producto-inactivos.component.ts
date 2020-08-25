@@ -59,4 +59,8 @@ export class ProductoInactivosComponent implements OnInit {
       relativeTo: this.route,
     });
   }
+
+  parseValueFloat(number) {
+    return parseFloat(number);
+  }
 }

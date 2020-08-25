@@ -65,10 +65,10 @@ export class ProductoUpdateComponent implements OnInit {
         name: [this.Producto.name, [Validators.required]],
         descripcion: [this.Producto.descripcion, [Validators.required]],
         tipoproducto_id: [this.Producto.tipoproducto_id, [Validators.required]],
-        imagen: ['./assets/img_productos/momia.jpg', [Validators.required]],
+        imagen: [this.Producto.imagen, [Validators.required]],
         clasificaciones: this.formBuilder.array([]),
         clasifproducto_id: this.formBuilder.array([]),
-        estado: [true, [Validators.required]],
+        estado: [this.Producto.estado, [Validators.required]],
         precio: [this.Producto.precio, [Validators.required]],
       });
     }

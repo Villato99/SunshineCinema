@@ -70,4 +70,10 @@ export class CarteleraShowComponent implements OnInit {
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['cartelera/', idUbicacion]);
   }
+
+  ReservarCartelera(id: number) {
+    this.router.navigate(['/cartelera/reserva/', id], {
+      relativeTo: this.route,
+    });
+  }
 }

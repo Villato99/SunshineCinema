@@ -112,33 +112,53 @@
   font-weight: bold;
 }
 
-.table {
-  border: 1px rgb(223, 223, 223) solid;
-  border-radius: 20px;
+.card {
+  background-color: white;
+  user-select: none;
+  width: 100%;
 }
 
-.thead-style {
+.card-header h5 {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #101010;
+  text-transform: uppercase;
+  font-family: "century gothic";
+}
+
+.card-header .fa {
+  color: red;
+  font-size: 25px;
+}
+
+.card-body .fa-film {
+  font-size: 25px;
+}
+
+.card-body .pelicula {
   background-color: #000;
   color: #fff;
-  font-weight: bold;
+}
+
+.card-body {
   font-family: "Century Gothic";
 }
 
-.trow-style td {
-  font-family: "Century Gothic";
-  color: rgb(68, 68, 68);
-  border-top: none;
+.card-body h5 {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.card-body span {
   font-size: 15px;
+  color: #606060;
 }
 
-.td-name {
-  font-weight: bold;
-}
-
-.td-genero {
-  margin: 3px auto;
-}
-
-td .fas {
-  font-size: 20px;
+.card-body p {
+  font-size: 13px;
+  padding: 1px 0;
+  margin: 0 auto;
+  color: #606060;
 }

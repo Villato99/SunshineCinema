@@ -35,7 +35,7 @@ export class PeliculaUpdateComponent implements OnInit {
     private notificacion: NotificacionService
   ) {
     const idPelicula = +this.route.snapshot.paramMap.get('id');
-    this.getPelicula(idPelicula); 
+    this.getPelicula(idPelicula);
   }
 
   getPelicula(id: number) {
@@ -68,10 +68,10 @@ export class PeliculaUpdateComponent implements OnInit {
           this.Pelicula.clasificacion_id,
           [Validators.required],
         ],
-        imagen: ['./assets/img_productos/momia.jpg', [Validators.required]],
+        imagen: [this.Pelicula.imagen, [Validators.required]],
         generos: this.formBuilder.array([]),
         genero_id: this.formBuilder.array([]),
-        estado: [true, [Validators.required]],
+        estado: [this.Pelicula.estado, [Validators.required]],
       });
     }
   }

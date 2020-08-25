@@ -16,7 +16,6 @@
       <div
         class="col-12 col-md-6 col-lg-3 mt-3 mb-3 d-flex align-items-stretch"
         *ngFor="let producto of datos"
-        ng-app=""
       >
         <!-- Información de productos -->
         <div class="card border-1 rounded shadow-sm bg-white">
@@ -48,13 +47,19 @@
               <small class="voto-count">{{
                 producto.votoproductos_count
               }}</small>
-              <a class="nav-link fa fa-thumbs-up"></a>
+              <a
+                (click)="sendLike(producto.id)"
+                class="nav-link fa fa-thumbs-up"
+              ></a>
             </div>
             <div class="votos d-flex flex-column mr-auto ml-2">
               <small class="voto-count">{{
                 producto.dislikeproductos_count
               }}</small>
-              <a class="nav-link fa fa-thumbs-down"></a>
+              <a
+                (click)="sendDislike(producto.id)"
+                class="nav-link fa fa-thumbs-down"
+              ></a>
             </div>
             <div class="votos d-flex flex-column mr-auto ml-2">
               <small class="voto-count"
@@ -62,7 +67,7 @@
                   (parseValueInt(producto.votoproductos_count) /
                     (parseValueInt(producto.votoproductos_count) +
                       parseValueInt(producto.dislikeproductos_count))) *
-                    100
+                    100 | number: "1.0-0"
                 }}%</small
               >
               <a class="nav-link fa fa-trophy"></a>

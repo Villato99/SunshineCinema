@@ -14,7 +14,7 @@ export class RolGuardService implements CanActivate {
     const expectedRole = route.data.expectedRole;
 
     if (!currentUser || currentUser.user.rol_id !== expectedRole) {
-      this.router.navigate(['pelicula'], {
+      this.router.navigate(['/user/login'], {
         queryParams: { auth: 'true' },
       });
       return false;

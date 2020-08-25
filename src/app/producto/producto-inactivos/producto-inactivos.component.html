@@ -12,31 +12,54 @@
 
 <div class="contenedor-inicio container-fluid m-auto text-center pt-5 pb-5">
   <div class="seccion2-inicio container d-flex flex-column">
+    <div class="crear-container text-left d-flex flex-row">
+      <button type="button" class="btn btn-crear" (click)="VerActivos()">
+        <span>Productos Activos</span>
+      </button>
+    </div>
+    <h2
+      class="text-center pt-5 pb-5 mt-5 mb-5"
+      *ngIf="datos != null && datos.length == 0"
+    >
+      No hay productos inactivos
+    </h2>
     <div class="listado-container mt-5">
-      <table class="table table-striped">
-        <thead class="thead-style">
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Tipo de Producto</th>
-            <th scope="col">Clasificaciones</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let producto of datos" class="trow-style">
-            <td class="td-name">{{ producto.name }}</td>
-            <td>{{ producto.descripcion }}</td>
-            <td>{{ producto.tipoproducto.name }}</td>
-            <td
-              class="d-flex flex-column td-genero"
-              *ngFor="let clasificacion of producto.clasifproductos"
+      <div class="row my-2 row-productos">
+        <div
+          class="col-12 col-md-6 col-lg-3 mt-3 mb-3 d-flex align-items-stretch"
+          *ngFor="let producto of datos"
+        >
+          <div class="card border-1 rounded shadow-sm bg-white">
+            <div class="card-header border-0 p-3 d-flex flex-column">
+              <i class="fa fa-bacon"></i>
+              <h5>
+                {{ producto.tipoproducto.name }}
+              </h5>
+            </div>
+            <div class="card-body p-0 d-flex flex-column text-center">
+              <div class="pelicula d-flex flex-column pt-3 pb-3">
+                <i class="fa fa-hamburger"></i>
+                <h5>{{ producto.name }}</h5>
+                <p class="p-2">{{ producto.descripcion }}</p>
+              </div>
+              <span class="mt-2 font-weight-bold">Clasificaciones</span>
+              <div
+                class="d-flex flex-column"
+                *ngFor="let clasif of producto.clasifproductos"
+              >
+                <p>
+                  {{ clasif.name }} - ₡
+                  {{
+                    parseValueFloat(producto.precio) +
+                      parseValueFloat(producto.precio) *
+                        parseValueFloat(clasif.valor)
+                  }}
+                </p>
+              </div>
+            </div>
+            <div
+              class="card-footer mt-2 border-0 d-flex flex-row justify-content-center"
             >
-              <span>{{ clasificacion.name }} </span>
-            </td>
-            <td>{{ producto.precio }}</td>
-            <td>
               <button
                 type="button"
                 class="btn bg-transparent"
@@ -44,19 +67,10 @@
               >
                 <i class="fas fa-pencil-alt"></i>
               </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="crear-container text-right">
-      <button
-        type="button"
-        class="btn btn-deshabilitadas"
-        (click)="VerActivos()"
-      >
-        <span>Productos Activos</span>
-      </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

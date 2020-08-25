@@ -1,0 +1,185 @@
+<div class="contenedor">
+  <div class="contenedor-inicio container-fluid p-0">
+    <div class="p-0 seccion1-inicio">
+      <div class="overlay"></div>
+      <div class="d-flex flex-column text-center">
+        <h5 class="s1-subtitle">
+          DISFRUTE DEL CINE DESDE LA COMODIDAD DE SU VEHICULO
+        </h5>
+        <span class="s1-title mt-3 mb-5">SUNSET CINEMA CARTELERA</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt-4 mb-0 contenido-productos d-flex flex-column">
+  <form [formGroup]="formCreate" (ngSubmit)="submitForm()" novalidate="true">
+    <div class="row m-auto container pt-4 pb-4">
+      <div class="col-12 col-md-6 mt-3 mb-3 info-cartelera d-flex flex-column">
+        <h4>Cartelera</h4>
+        <h6>{{ cartelera.pelicula.name }}</h6>
+        <p>{{ cartelera.pelicula.sinopsis }}</p>
+        <div class="d-flex flex-row">
+          <i class="mr-2 fa fa-map-marker-alt"></i>
+          <span>{{ cartelera.ubicacion.name }} </span>
+        </div>
+        <p>Fecha: {{ cartelera.fechaHora }}</p>
+        <p>Hora: {{ cartelera.hora }}</p>
+      </div>
+      <div
+        class="col-12 col-md-6 mt-3 mb-3 formulario-reserva d-flex flex-column"
+      >
+        <div class="form-group text-left">
+          <h4>Opciones de Reserva</h4>
+        </div>
+        <div class="form-group text-left d-flex flex-row">
+          <div class="mr-5 d-flex flex-column">
+            <span class="subtitle">Tiquete</span>
+            <select class="form-control select-clasif" formControlName="tique">
+              <option
+                *ngFor="let tiquete of cartelera.tiquetes"
+                [value]="tiquete.id"
+              >
+                {{ tiquete.name }}
+              </option>
+            </select>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="subtitle">Cantidad</span>
+            <input
+              type="number"
+              class="form-control"
+              min="1"
+              max="5"
+              value="1"
+              formControlName="cant"
+            />
+          </div>
+          <a (click)="addTiquete()" class="btn btn-reservar">
+            Agregar
+          </a>
+        </div>
+        <div
+          class="form-group info-reserva d-flex flex-column"
+          *ngIf="
+            tiquetesSeleccionadosList != null &&
+            tiquetesSeleccionadosList.length > 0
+          "
+        >
+          <table class="table table-striped">
+            <thead class="thead-style">
+              <tr>
+                <th scope="col">Tiquete</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let selec of tiquetesSeleccionadosList"
+                class="text-center"
+              >
+                <td>{{ selec.idTiquete }}</td>
+                <td>{{ selec.cant }}</td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn fa fa-trash bg-transparent"
+                    (click)="deleteTiquete(selec.idTiquete)"
+                  ></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="form-group text-left d-flex flex-row">
+          <div class="mr-5 d-flex flex-column">
+            <span class="subtitle">Producto</span>
+            <select class="form-control select-clasif" formControlName="prod">
+              <option
+                *ngFor="let producto of productosList"
+                [value]="producto.id"
+              >
+                {{ producto.name }}
+              </option>
+            </select>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="subtitle">Cantidad</span>
+            <input
+              type="number"
+              class="form-control"
+              min="1"
+              max="5"
+              value="1"
+              formControlName="cantP"
+            />
+          </div>
+          <a (click)="addProducto()" class="btn btn-reservar">
+            Agregar
+          </a>
+        </div>
+        <div
+          class="form-group info-reserva d-flex flex-column"
+          *ngIf="
+            productosSeleccionadosList != null &&
+            productosSeleccionadosList.length > 0
+          "
+        >
+          <table class="table table-striped">
+            <thead class="thead-style">
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let selec of productosSeleccionadosList"
+                class="text-center"
+              >
+                <td>{{ selec.idProducto }}</td>
+                <td>{{ selec.cantP }}</td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn fa fa-trash bg-transparent"
+                    (click)="deleteProducto(selec.idProducto)"
+                  ></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex flex-column montos mt-3 border-1 rounded">
+          <div class="d-flex flex-row">
+            <span>Subtotal:</span>
+            <span>{{
+              parseValueFloat(subTotalTiquete) +
+                parseValueFloat(subTotalProducto) | number: "1.1-1"
+            }}</span>
+          </div>
+          <div class="d-flex flex-row">
+            <span>IVA:</span>
+            <span>13%</span>
+          </div>
+          <div class="d-flex flex-row">
+            <h4 class="font-weight-bold">Total:</h4>
+            <h4 class="font-weight-bold">
+              {{
+                parseValueFloat(totalTiquete) + parseValueFloat(totalProducto)
+                  | number: "1.1-1"
+              }}
+            </h4>
+          </div>
+        </div>
+
+        <div class="form-group text-right mt-4">
+          <button class="btn btn-reservar" type="submit">
+            Reservar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

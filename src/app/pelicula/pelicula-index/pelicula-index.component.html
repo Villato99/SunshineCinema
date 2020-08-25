@@ -35,14 +35,24 @@
         >
           <div class="votos d-flex flex-column ml-auto mr-2">
             <small class="voto-count">{{ peli.votopeliculas_count }}</small>
-            <a type="submit" class="nav-link fa fa-thumbs-up"></a>
+            <a (click)="sendLike(peli.id)" class="nav-link fa fa-thumbs-up"></a>
           </div>
           <div class="votos d-flex flex-column mr-auto ml-2">
             <small class="voto-count">{{ peli.dislikepeliculas_count }}</small>
-            <a type="submit" class="nav-link fa fa-thumbs-down"></a>
+            <a
+              (click)="sendDislike(peli.id)"
+              class="nav-link fa fa-thumbs-down"
+            ></a>
           </div>
           <div class="votos d-flex flex-column mr-auto ml-2">
-            <small class="voto-count">{{ peli.votopeliculas_count }}%</small>
+            <small class="voto-count"
+              >{{
+                (parseValueInt(peli.votopeliculas_count) /
+                  (parseValueInt(peli.votopeliculas_count) +
+                    parseValueInt(peli.dislikepeliculas_count))) *
+                  100 | number: "1.0-0"
+              }}%</small
+            >
             <a class="nav-link fa fa-trophy"></a>
           </div>
         </div>
@@ -50,21 +60,3 @@
     </div>
   </div>
 </div>
-
-<!--<div class="contenedor-inicio container-fluid" style="padding-top: 10%;">
-  <div class="row my-2">
-
-    <div class="col-md-4 my-3" *ngFor="let peli of datos">
-
-      <div class="card border-info mb-3">
-        <div class="card-body">
-          <h4 class="card-title">{{peli.name}} </h4>
-          <h6 class="card-subtitle mb-2 text-muted">{{peli.sinopsis}} </h6>
-          <p class="card-text">{{peli.votopeliculas_count}} </p>
-          <a class="btn btn-info" [routerLink]="['/pelicula/',peli.id]" routerLinkActive="active" >Información <i class="fas fa-info"></i></a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>-->

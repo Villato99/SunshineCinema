@@ -1,6 +1,6 @@
 .seccion1-inicio {
   background-image: url("/assets/img/autocine2.jpg");
-  background-size: cover;
+  background-size: contain;
   height: 595px;
   display: table-cell;
   vertical-align: middle;
@@ -101,4 +101,71 @@ body {
   color: #606060;
   font-family: "century gothic";
   user-select: none;
+}
+
+.select-ubicacion {
+  width: 220px;
+}
+
+.formulario {
+  font-family: "century gothic";
+  border-bottom: 1px solid #c5c5c5;
+  padding-bottom: 30px;
+}
+
+.formulario span {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 0 10px 0;
+}
+
+.formulario select {
+  font-size: 14px;
+}
+
+.btn-reservar {
+  background-color: #ffb400;
+  color: #000;
+  font-weight: bold;
+  font-family: "Century Gothic";
+  transition: ease-in-out 0.2s;
+  border-radius: 0;
+  padding: 10px 15px;
+  font-size: 14px;
+  margin: auto auto 0 40px;
+}
+
+.btn-reservar:hover {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+}
+
+.table {
+  border: 1px solid #c5c5c5;
+}
+
+.thead-style tr {
+  background-color: #151515;
+  color: #fff;
+  font-family: "century gothic";
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.montos h4,
+.montos span {
+  font-family: "century gothic";
+}
+
+.montos span {
+  font-size: 14px;
+}
+
+.montos h4 {
+  font-size: 18px;
 }

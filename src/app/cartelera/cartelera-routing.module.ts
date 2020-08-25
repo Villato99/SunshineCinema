@@ -8,6 +8,7 @@ import { CarteleraAllComponent } from './cartelera-all/cartelera-all.component';
 import { AuthGuardService } from '../share/auth-guard.service';
 import { RolGuardService } from '../share/rol-guard.service';
 import { CarteleraInactivasComponent } from './cartelera-inactivas/cartelera-inactivas.component';
+import { CarteleraReservaComponent } from './cartelera-reserva/cartelera-reserva.component';
 
 const routes: Routes = [
   { path: 'cartelera/cartelera-index', component: CarteleraIndexComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService, RolGuardService],
     data: { expectedRole: 1 },
   },
+
   {
     path: 'cartelera/inactivas',
     component: CarteleraInactivasComponent,
@@ -28,6 +30,12 @@ const routes: Routes = [
     component: CarteleraCreateComponent,
     canActivate: [AuthGuardService, RolGuardService],
     data: { expectedRole: 1 },
+  },
+  {
+    path: 'cartelera/reserva/:id',
+    component: CarteleraReservaComponent,
+    canActivate: [AuthGuardService, RolGuardService],
+    data: { expectedRole: 2 },
   },
   {
     path: 'cartelera/update/:id',

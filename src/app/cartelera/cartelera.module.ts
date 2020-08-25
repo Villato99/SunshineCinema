@@ -8,8 +8,9 @@ import { CarteleraCreateComponent } from './cartelera-create/cartelera-create.co
 import { CarteleraUpdateComponent } from './cartelera-update/cartelera-update.component';
 import { CarteleraAllComponent } from './cartelera-all/cartelera-all.component';
 //Agregar la referencia en el modulo donde se utilizaran uno o mas formularios reactive
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CarteleraInactivasComponent } from './cartelera-inactivas/cartelera-inactivas.component';
+import { CarteleraReservaComponent } from './cartelera-reserva/cartelera-reserva.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,13 @@ import { CarteleraInactivasComponent } from './cartelera-inactivas/cartelera-ina
     CarteleraUpdateComponent,
     CarteleraAllComponent,
     CarteleraInactivasComponent,
+    CarteleraReservaComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, CarteleraRoutingModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    CarteleraRoutingModule,
+    FormsModule,
+  ],
 })
 export class CarteleraModule {}

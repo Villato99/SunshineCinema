@@ -126,7 +126,6 @@ export class PeliculaCreateComponent implements OnInit {
 
   submitForm() {
     console.log(this.formCreate.value);
-
     this.gService.create('peliculas', this.formCreate.value).subscribe(
       (respuesta: any) => {
         this.Pelicula = respuesta;
@@ -142,9 +141,4 @@ export class PeliculaCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  OnFileSelect(event) {
-    const file = event.target.files[0];
-    console.log(file);
-  }
 }
